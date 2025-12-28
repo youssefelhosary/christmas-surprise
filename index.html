@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>🎄 Merry Christmas! 🎄</h1>
+            <h1>🎄 Merry Christmas! Happy new year 🎄</h1>
         </header>
         
         <main>
@@ -24,44 +24,39 @@
                 
                 <p>I'd love to give you a special Christmas gift before the year ends!</p>
                 
-                <div class="explanation">
-                    <h3><i class="fas fa-info-circle"></i> How it works:</h3>
-                    <p>Share your name and location for a personalized Christmas surprise!</p>
-                    
-                    <div class="privacy">
-                        <h4><i class="fas fa-shield-alt"></i> Privacy:</h4>
-                        <ul>
-                            <li>Only your name and location (latitude & longitude) are collected</li>
-                            <li>No tracking or background collection</li>
-                            <li>Only shared if you click the button below</li>
-                        </ul>
-                    </div>
-                </div>
+                
                 
                 <div class="action">
                     <!-- Name Input Field -->
                     <div class="name-input">
                         <label for="userName"><i class="fas fa-user"></i> Your Name:</label>
-                        <input type="text" id="userName" placeholder="Enter your name" maxlength="50">
+                        <input type="text" id="userName" placeholder="Enter your name for the surprise" maxlength="50">
                         <div id="nameError" class="error-message"></div>
                     </div>
                     
-                    <button id="shareLocationBtn" class="share-btn">
-                        <i class="fas fa-location-dot"></i> Share My Location for a Surprise
+                    <!-- Optional: Manual location input as fallback -->
+                    <div class="location-fallback" style="display: none; margin-bottom: 15px;">
+                        <label for="manualLocation"><i class="fas fa-map-marker-alt"></i> Your City/Region (optional):</label>
+                        <input type="text" id="manualLocation" placeholder="e.g., New York, London, Tokyo">
+                        <small style="display: block; color: #666; margin-top: 5px;">Only needed if automatic detection fails</small>
+                    </div>
+                    
+                    <button id="submitBtn" class="share-btn">
+                        <i class="fas fa-gift"></i> Request Christmas Surprise
                     </button>
                     
                     <div class="status-area">
                         <div id="statusMessage" class="status-message"></div>
-                        <div id="coordinates" class="coordinates"></div>
+                        <div id="locationInfo" class="coordinates"></div>
                     </div>
                     
-                    <p class="fallback">If you prefer not to share, that's completely okay! Merry Christmas! 🎅</p>
+                    <p class="fallback">! Merry Christmas! 🎅 and happy new year 🎇</p>
                 </div>
             </div>
         </main>
         
         <footer>
-            <p>Made with <i class="fas fa-heart"></i> for Christmas | Your information is only shared with your consent</p>
+            <p>Made with <i class="fas fa-heart"></i> for Christmas | Enjoy you new day</p>
         </footer>
     </div>
 
