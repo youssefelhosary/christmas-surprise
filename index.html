@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Christmas Surprise 🎄</title>
+<title>Our Love Story ❤️</title>
 
 <style>
-:root{--red:#ff3b3b}
 *{box-sizing:border-box}
 body{
   margin:0;
   font-family:'Segoe UI',Tahoma;
-  background:radial-gradient(circle at top,#1a0000,#000);
+  background:linear-gradient(180deg,#120000,#000);
   color:#fff;
   overflow:hidden;
   text-align:center;
@@ -21,91 +20,86 @@ body{
 #lock{
   position:fixed; inset:0;
   display:flex; justify-content:center; align-items:center;
-  background:#000; z-index:999;
+  background:#000; z-index:10;
 }
-.box{
-  width:300px; background:#111;
-  border-radius:26px; padding:28px 22px;
-  box-shadow:0 0 40px rgba(255,0,0,.35);
+.lock-box{
+  background:#160000;
+  padding:30px;
+  border-radius:24px;
+  box-shadow:0 0 40px rgba(255,0,0,.4);
 }
-.box h2{color:var(--red)}
-.box input{
-  width:100%; padding:14px; margin:16px 0;
-  border:none; border-radius:14px;
-  background:#222; color:#fff; text-align:center;
-}
-.box button{
-  padding:14px 32px;
-  border:none; border-radius:16px;
-  background:linear-gradient(135deg,#ff3b3b,#ff7a7a);
-  color:#fff; font-weight:700;
-}
-
-/* Content */
-#content{
-  display:none;
-  height:100vh;
-  overflow-y:auto;
-  padding:24px 14px 80px;
-}
-.hero h1{margin-top:40px}
-.hero .sub{color:#ff9b9b;font-size:1.2rem}
-
-.msg{
-  margin:22px auto;
-  max-width:320px;
-  font-size:1.25rem;
-  color:#ff5c5c;
-  text-shadow:0 0 12px rgba(255,255,255,.35);
-}
-
-/* Editor */
-.editor{
-  max-width:320px;
-  margin:20px auto;
-}
-.editor textarea{
-  width:100%; height:120px;
-  padding:12px;
-  border-radius:14px;
-  border:none;
-  font-family:inherit;
-  font-size:1rem;
-}
-.editor button{
-  margin-top:10px;
-  padding:12px 26px;
+.lock-box input{
+  padding:14px;
+  width:220px;
   border:none;
   border-radius:14px;
-  background:#ff3b3b;
-  color:white;
+  background:#222;
+  color:#fff;
+  margin:15px 0;
+  text-align:center;
+}
+.lock-box button{
+  padding:12px 30px;
+  border:none;
+  border-radius:14px;
+  background:#ff4d6d;
+  color:#fff;
   font-weight:bold;
 }
 
-/* Photos */
-.card{
-  width:260px;
-  background:white;
-  color:black;
-  padding:10px 10px 36px;
-  margin:28px auto;
-  box-shadow:0 18px 28px rgba(0,0,0,.6);
-  transform:rotate(-3deg);
+/* Pages */
+.page{
+  display:none;
+  height:100vh;
+  padding:30px 20px 80px;
 }
-.card.alt{transform:rotate(4deg)}
-.card img{width:100%}
+.page.active{display:block}
+
+h1{color:#ff8fa3}
+p{
+  font-size:1.25rem;
+  line-height:1.8;
+  max-width:340px;
+  margin:25px auto;
+}
+
+/* Photos */
+.photos{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  max-width:320px;
+  margin:30px auto;
+}
+.photos img{
+  width:100%;
+  border-radius:14px;
+}
+
+/* Button */
+.next{
+  position:fixed;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:14px 40px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(135deg,#ff4d6d,#ff758f);
+  color:white;
+  font-size:1rem;
+  font-weight:bold;
+}
 
 /* Snow */
 .snow{
-  position:fixed; top:-12px;
-  font-size:18px;
+  position:fixed;
+  top:-10px;
   animation:fall linear infinite;
 }
 @keyframes fall{
   to{transform:translateY(110vh)}
 }
-
-.foot{opacity:.7;margin:30px 0 60px}
 </style>
 </head>
 
@@ -113,61 +107,134 @@ body{
 
 <!-- LOCK -->
 <div id="lock">
-  <div class="box">
-    <h2>🎁 مفاجأة كريسماس</h2>
+  <div class="lock-box">
+    <h2>🔒</h2>
     <p>اكتب الباسورد</p>
     <input type="password" id="pass">
-    <button onclick="unlock()">فتح 🎄</button>
+    <br>
+    <button onclick="unlock()">دخول ❤️</button>
   </div>
 </div>
 
-<!-- CONTENT -->
-<div id="content">
-
-  <div class="hero">
-    <h1>🎄 Merry Christmas</h1>
-    <div class="sub">يا حبابيب ❤️</div>
-  </div>
-
-  <!-- Editor -->
-  <div class="editor">
-    <textarea id="editor" placeholder="اكتب رسالتك هنا..."></textarea>
-    <button onclick="saveText()">حفظ الرسالة ✨</button>
-  </div>
-
-  <!-- Message -->
-  <p class="msg" id="msgBox"></p>
-
-  <!-- Photos -->
-  <div class="card">
-    <img src="images/pic1.jpg">
-  </div>
-
-  <div class="card alt">
-    <img src="images/pic2.jpg">
-  </div>
-
-  <p class="foot">
-    سنة جديدة مليانة حب وراحة بال ❄️
+<!-- PAGE 1 -->
+<div class="page active">
+  <h1>❤️ أول مرة اتقابلنا</h1>
+  <p>
+    فاكر اليوم ده؟  
+    كان لقاء بسيط  
+    بس من اللحظة دي  
+    كل حاجة في حياتي اتغيرت ✨
   </p>
-
+  <button class="next" onclick="go(1)">التالي ➜</button>
 </div>
 
-<audio id="music" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
-</audio>
+<!-- PAGE 2 -->
+<div class="page">
+  <h1>📸 ذكرياتنا</h1>
+  <div class="photos">
+    <img src="images/1.jpg">
+    <img src="images/2.jpg">
+    <img src="images/3.jpg">
+    <img src="images/4.jpg">
+  </div>
+  <button class="next" onclick="go(2)">التالي ➜</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <h1>💌 رسالة من القلب</h1>
+  <p>
+    يمكن الدنيا تتغير  
+    ويمكن الأيام تعدي  
+    بس وجودك في حياتي  
+    هو أكتر حاجة ثابتة ❤️
+  </p>
+  <button class="next" onclick="go(3)">التالي ➜</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <h1>💖 حبنا</h1>
+  <p>
+    الحب مش كلام  
+    الحب إحساس وأمان  
+    شخص لما يكون موجود  
+    كل الدنيا بتهدى ❤️
+  </p>
+  <p>
+    وجودك في حياتي  
+    نعمة مش بس حكاية 🤍
+  </p>
+  <button class="next" onclick="go(4)">التالي ➜</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+  <h1>✨ لحظات حلوة في السنة اللي فاتت</h1>
+  <p>
+    السنة اللي فاتت  
+    كان فيها لحظات بسيطة  
+    بس علّمت في قلبي كتير ❤️
+  </p>
+  <p>
+    ضحكة منك  
+    كلمة في وقتها  
+    وإحساس أمان  
+    عمره ما يتنسي 🤍
+  </p>
+  <button class="next" onclick="go(5)">التالي ➜</button>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+  <h1>💌 مسدجات من السنة اللي فاتت</h1>
+  <p>
+    السنة اللي فاتت  
+    علمتني إن الحب  
+    مش مثالي  
+    بس حقيقي ❤️
+  </p>
+  <p>
+    وإن اللي بينا  
+    أقوى من أي تعب  
+    وأكبر من أي خلاف 🤍
+  </p>
+  <button class="next" onclick="go(6)">التالي ➜</button>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page">
+  <h1>🎉 Happy New Year 2025</h1>
+  <p>
+    سنة جديدة بدأت  
+    وأنا متطمن  
+    طول ما إحنا سوا ❤️
+  </p>
+  <p>
+    بتمنى السنة دي  
+    تكون أخف على قلبنا  
+    وأحلى في تفاصيلها ✨
+  </p>
+  <p>
+    كل سنة وإنت/ي  
+    أحلى حاجة في حياتي 🤍
+  </p>
+</div>
 
 <script>
 const PASSWORD="662006";
+const pages=document.querySelectorAll(".page");
 
 function unlock(){
   if(document.getElementById("pass").value===PASSWORD){
     document.getElementById("lock").style.display="none";
-    document.getElementById("content").style.display="block";
-    document.getElementById("music").play();
     snow();
-    loadText();
-  }else alert("غلط 🎅");
+  }else alert("غلط ❤️");
+}
+
+function go(i){
+  pages.forEach(p=>p.classList.remove("active"));
+  pages[i].classList.add("active");
 }
 
 function snow(){
@@ -180,18 +247,7 @@ function snow(){
     s.style.animationDuration=(Math.random()*3+2)+"s";
     document.body.appendChild(s);
     setTimeout(()=>s.remove(),5000);
-  },120);
-}
-
-function saveText(){
-  const t=document.getElementById("editor").value.replace(/\n/g,"<br>");
-  localStorage.setItem("msg",t);
-  document.getElementById("msgBox").innerHTML=t;
-}
-
-function loadText(){
-  document.getElementById("msgBox").innerHTML=
-    localStorage.getItem("msg") || "اكتب رسالتك من فوق ❤️";
+  },150);
 }
 </script>
 
