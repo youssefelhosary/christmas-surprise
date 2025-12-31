@@ -38,7 +38,6 @@ body{
   color:#b3002d;
   margin:15px 0;
   text-align:center;
-  font-size:1rem;
 }
 .lock-box button{
   padding:12px 34px;
@@ -47,7 +46,6 @@ body{
   background:linear-gradient(135deg,#ff5f7e,#ff8fa3);
   color:#fff;
   font-weight:bold;
-  font-size:1rem;
 }
 
 /* Pages */
@@ -58,16 +56,12 @@ body{
 }
 .page.active{display:block}
 
-h1{
-  color:#ff4d6d;
-  margin-bottom:10px;
-}
+h1{color:#ff4d6d}
 p{
   font-size:1.25rem;
   line-height:1.9;
   max-width:340px;
   margin:26px auto;
-  color:#b3002d;
 }
 
 /* Photos */
@@ -95,19 +89,17 @@ p{
   border-radius:40px;
   background:linear-gradient(135deg,#ff5f7e,#ff9fb3);
   color:white;
-  font-size:1rem;
   font-weight:bold;
-  box-shadow:0 10px 25px rgba(255,105,135,.4);
 }
 
-/* Snow */
-.snow{
+/* Effects */
+.snow,.confetti{
   position:fixed;
   top:-10px;
   animation:fall linear infinite;
 }
 @keyframes fall{
-  to{transform:translateY(110vh)}
+  to{transform:translateY(110vh) rotate(360deg)}
 }
 </style>
 </head>
@@ -128,19 +120,25 @@ p{
 <!-- PAGE 1 -->
 <div class="page active">
   <h1>🤍 أول مرة اتقابلنا</h1>
+
+  <img src="images/first.jpg"
+       style="width:85%;max-width:320px;border-radius:22px;
+       margin:25px auto;display:block;
+       box-shadow:0 15px 35px rgba(255,105,135,.35);">
+
   <p>
     فاكر أول مرة شوفتك؟  
     اليوم ده كان بداية  
     حكاية جميلة  
-    مكنتش أعرف إنها هتبقى  
-    أغلى حاجة في حياتي 🤍
+    غيرت كل حاجة في حياتي 🤍
   </p>
+
   <button class="next" onclick="go(1)">التالي ➜</button>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page">
-  <h1>📸 لحظاتنا</h1>
+  <h1>📸 صورنا</h1>
   <div class="photos">
     <img src="images/1.jpg">
     <img src="images/2.jpg">
@@ -154,11 +152,10 @@ p{
 <div class="page">
   <h1>💌 رسالة من القلب</h1>
   <p>
-    يمكن الدنيا تتغير  
-    ويمكن الأيام تعدي  
-    بس وجودك في حياتي  
-    هو الحاجة الوحيدة  
-    اللي بتطمني دايمًا 🤍
+    وجودك في حياتي  
+    هو أكتر حاجة بتطمني  
+    ومع كل يوم  
+    بحمد ربنا عليك 🤍
   </p>
   <button class="next" onclick="go(3)">التالي ➜</button>
 </div>
@@ -167,53 +164,26 @@ p{
 <div class="page">
   <h1>💖 حبنا</h1>
   <p>
-    الحب مش كلام  
     الحب إحساس  
-    راحة، أمان  
+    راحة وأمان  
     وشخص لما يكون موجود  
-    كل الدنيا تنور 🤍
+    الدنيا كلها تنور 🤍
   </p>
   <button class="next" onclick="go(4)">التالي ➜</button>
 </div>
 
 <!-- PAGE 5 -->
 <div class="page">
-  <h1>✨ لحظات حلوة السنة اللي فاتت</h1>
-  <p>
-    السنة اللي فاتت  
-    كان فيها تفاصيل بسيطة  
-    بس كانت كفاية  
-    تخليني أحبك أكتر كل يوم 🤍
-  </p>
-  <button class="next" onclick="go(5)">التالي ➜</button>
-</div>
-
-<!-- PAGE 6 -->
-<div class="page">
-  <h1>💌 مسدجات من السنة اللي فاتت</h1>
-  <p>
-    علمتني السنة اللي فاتت  
-    إن الحب الحقيقي  
-    بيبان في التفاصيل  
-    وفي الشخص اللي  
-    يختارك كل يوم 🤍
-  </p>
-  <button class="next" onclick="go(6)">التالي ➜</button>
-</div>
-
-<!-- PAGE 7 -->
-<div class="page">
   <h1>🎄 Happy New Year 2025</h1>
   <p>
-    سنة جديدة بدأت  
+    سنة جديدة  
     وأنا كل أملي  
     نكمّلها سوا  
-    ونعيشها بهدوء  
-    وقلبنا مطمّن 🤍
+    ونضحك أكتر 🤍
   </p>
   <p>
     كل سنة وإنت/ي  
-    أجمل نعمة في حياتي 🤍
+    أحلى حاجة في حياتي ❤️
   </p>
 </div>
 
@@ -224,6 +194,7 @@ const pages=document.querySelectorAll(".page");
 function unlock(){
   if(document.getElementById("pass").value===PASSWORD){
     document.getElementById("lock").style.display="none";
+    celebrate();
     snow();
   }else alert("غلط 🤍");
 }
@@ -244,6 +215,21 @@ function snow(){
     document.body.appendChild(s);
     setTimeout(()=>s.remove(),6000);
   },180);
+}
+
+function celebrate(){
+  const emojis=["🎉","🎊","❤️","🤍","✨","🌸"];
+  for(let i=0;i<120;i++){
+    setTimeout(()=>{
+      const c=document.createElement("div");
+      c.className="confetti";
+      c.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+      c.style.left=Math.random()*100+"vw";
+      c.style.animationDuration=(Math.random()*3+2)+"s";
+      document.body.appendChild(c);
+      setTimeout(()=>c.remove(),6000);
+    },i*20);
+  }
 }
 </script>
 
