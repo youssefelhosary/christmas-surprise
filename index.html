@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Love Story ❤️</title>
+<title>Our Love Story 🎄🤍</title>
 
 <style>
 *{box-sizing:border-box}
 body{
   margin:0;
   font-family:'Segoe UI',Tahoma;
-  background:linear-gradient(180deg,#120000,#000);
-  color:#fff;
+  background:linear-gradient(180deg,#fff,#ffe6eb,#fff);
+  color:#b3002d;
   overflow:hidden;
   text-align:center;
 }
@@ -20,60 +20,68 @@ body{
 #lock{
   position:fixed; inset:0;
   display:flex; justify-content:center; align-items:center;
-  background:#000; z-index:10;
+  background:linear-gradient(180deg,#fff,#ffd6de);
+  z-index:10;
 }
 .lock-box{
-  background:#160000;
-  padding:30px;
-  border-radius:24px;
-  box-shadow:0 0 40px rgba(255,0,0,.4);
+  background:#fff;
+  padding:32px;
+  border-radius:26px;
+  box-shadow:0 15px 40px rgba(255,105,135,.35);
 }
 .lock-box input{
   padding:14px;
   width:220px;
   border:none;
-  border-radius:14px;
-  background:#222;
-  color:#fff;
+  border-radius:16px;
+  background:#ffe6eb;
+  color:#b3002d;
   margin:15px 0;
   text-align:center;
+  font-size:1rem;
 }
 .lock-box button{
-  padding:12px 30px;
+  padding:12px 34px;
   border:none;
-  border-radius:14px;
-  background:#ff4d6d;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ff5f7e,#ff8fa3);
   color:#fff;
   font-weight:bold;
+  font-size:1rem;
 }
 
 /* Pages */
 .page{
   display:none;
   height:100vh;
-  padding:30px 20px 80px;
+  padding:40px 20px 90px;
 }
 .page.active{display:block}
 
-h1{color:#ff8fa3}
+h1{
+  color:#ff4d6d;
+  margin-bottom:10px;
+}
 p{
   font-size:1.25rem;
-  line-height:1.8;
+  line-height:1.9;
   max-width:340px;
-  margin:25px auto;
+  margin:26px auto;
+  color:#b3002d;
 }
 
 /* Photos */
 .photos{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:12px;
+  gap:14px;
   max-width:320px;
-  margin:30px auto;
+  margin:35px auto;
 }
 .photos img{
   width:100%;
-  border-radius:14px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(255,105,135,.3);
 }
 
 /* Button */
@@ -82,13 +90,14 @@ p{
   bottom:25px;
   left:50%;
   transform:translateX(-50%);
-  padding:14px 40px;
+  padding:14px 44px;
   border:none;
-  border-radius:30px;
-  background:linear-gradient(135deg,#ff4d6d,#ff758f);
+  border-radius:40px;
+  background:linear-gradient(135deg,#ff5f7e,#ff9fb3);
   color:white;
   font-size:1rem;
   font-weight:bold;
+  box-shadow:0 10px 25px rgba(255,105,135,.4);
 }
 
 /* Snow */
@@ -108,29 +117,30 @@ p{
 <!-- LOCK -->
 <div id="lock">
   <div class="lock-box">
-    <h2>🔒</h2>
+    <h2>🎄🤍</h2>
     <p>اكتب الباسورد</p>
     <input type="password" id="pass">
     <br>
-    <button onclick="unlock()">دخول ❤️</button>
+    <button onclick="unlock()">دخول</button>
   </div>
 </div>
 
 <!-- PAGE 1 -->
 <div class="page active">
-  <h1>❤️ أول مرة اتقابلنا</h1>
+  <h1>🤍 أول مرة اتقابلنا</h1>
   <p>
-    فاكر اليوم ده؟  
-    كان لقاء بسيط  
-    بس من اللحظة دي  
-    كل حاجة في حياتي اتغيرت ✨
+    فاكر أول مرة شوفتك؟  
+    اليوم ده كان بداية  
+    حكاية جميلة  
+    مكنتش أعرف إنها هتبقى  
+    أغلى حاجة في حياتي 🤍
   </p>
   <button class="next" onclick="go(1)">التالي ➜</button>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page">
-  <h1>📸 ذكرياتنا</h1>
+  <h1>📸 لحظاتنا</h1>
   <div class="photos">
     <img src="images/1.jpg">
     <img src="images/2.jpg">
@@ -147,7 +157,8 @@ p{
     يمكن الدنيا تتغير  
     ويمكن الأيام تعدي  
     بس وجودك في حياتي  
-    هو أكتر حاجة ثابتة ❤️
+    هو الحاجة الوحيدة  
+    اللي بتطمني دايمًا 🤍
   </p>
   <button class="next" onclick="go(3)">التالي ➜</button>
 </div>
@@ -157,30 +168,22 @@ p{
   <h1>💖 حبنا</h1>
   <p>
     الحب مش كلام  
-    الحب إحساس وأمان  
-    شخص لما يكون موجود  
-    كل الدنيا بتهدى ❤️
-  </p>
-  <p>
-    وجودك في حياتي  
-    نعمة مش بس حكاية 🤍
+    الحب إحساس  
+    راحة، أمان  
+    وشخص لما يكون موجود  
+    كل الدنيا تنور 🤍
   </p>
   <button class="next" onclick="go(4)">التالي ➜</button>
 </div>
 
 <!-- PAGE 5 -->
 <div class="page">
-  <h1>✨ لحظات حلوة في السنة اللي فاتت</h1>
+  <h1>✨ لحظات حلوة السنة اللي فاتت</h1>
   <p>
     السنة اللي فاتت  
-    كان فيها لحظات بسيطة  
-    بس علّمت في قلبي كتير ❤️
-  </p>
-  <p>
-    ضحكة منك  
-    كلمة في وقتها  
-    وإحساس أمان  
-    عمره ما يتنسي 🤍
+    كان فيها تفاصيل بسيطة  
+    بس كانت كفاية  
+    تخليني أحبك أكتر كل يوم 🤍
   </p>
   <button class="next" onclick="go(5)">التالي ➜</button>
 </div>
@@ -189,35 +192,28 @@ p{
 <div class="page">
   <h1>💌 مسدجات من السنة اللي فاتت</h1>
   <p>
-    السنة اللي فاتت  
-    علمتني إن الحب  
-    مش مثالي  
-    بس حقيقي ❤️
-  </p>
-  <p>
-    وإن اللي بينا  
-    أقوى من أي تعب  
-    وأكبر من أي خلاف 🤍
+    علمتني السنة اللي فاتت  
+    إن الحب الحقيقي  
+    بيبان في التفاصيل  
+    وفي الشخص اللي  
+    يختارك كل يوم 🤍
   </p>
   <button class="next" onclick="go(6)">التالي ➜</button>
 </div>
 
 <!-- PAGE 7 -->
 <div class="page">
-  <h1>🎉 Happy New Year 2025</h1>
+  <h1>🎄 Happy New Year 2025</h1>
   <p>
     سنة جديدة بدأت  
-    وأنا متطمن  
-    طول ما إحنا سوا ❤️
-  </p>
-  <p>
-    بتمنى السنة دي  
-    تكون أخف على قلبنا  
-    وأحلى في تفاصيلها ✨
+    وأنا كل أملي  
+    نكمّلها سوا  
+    ونعيشها بهدوء  
+    وقلبنا مطمّن 🤍
   </p>
   <p>
     كل سنة وإنت/ي  
-    أحلى حاجة في حياتي 🤍
+    أجمل نعمة في حياتي 🤍
   </p>
 </div>
 
@@ -229,7 +225,7 @@ function unlock(){
   if(document.getElementById("pass").value===PASSWORD){
     document.getElementById("lock").style.display="none";
     snow();
-  }else alert("غلط ❤️");
+  }else alert("غلط 🤍");
 }
 
 function go(i){
@@ -241,13 +237,13 @@ function snow(){
   setInterval(()=>{
     const s=document.createElement("div");
     s.className="snow";
-    s.textContent="❄";
+    s.textContent=Math.random()>.5?"❄":"🤍";
     s.style.left=Math.random()*100+"vw";
     s.style.opacity=Math.random();
-    s.style.animationDuration=(Math.random()*3+2)+"s";
+    s.style.animationDuration=(Math.random()*3+3)+"s";
     document.body.appendChild(s);
-    setTimeout(()=>s.remove(),5000);
-  },150);
+    setTimeout(()=>s.remove(),6000);
+  },180);
 }
 </script>
 
